@@ -4,5 +4,6 @@ services:
     image: kalutes/ix500-scan-on-button:latest
     restart: "always"
     privileged: true
+    network_mode: none
     volumes:
       - /mnt/CloudBackup/BackedUpFiles/paperless-ingest:/scans
