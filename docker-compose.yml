@@ -1,11 +1,8 @@
-version: "3.8"
-
 services:
   scanner:
-    container_name: scanner
-    build: .
+    container_name: ix500-scanner
+    image: kalutes/ix500-scan-on-button:latest
     restart: "always"
     privileged: true
     volumes:
-      - /mnt/user/appdata/paperless-ngx/data/consume:/scans
-      - /var/run/dbus:/var/run/dbus
+      - /mnt/CloudBackup/BackedUpFiles/paperless-ingest:/scans
