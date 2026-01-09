@@ -6,4 +6,4 @@ services:
     privileged: true
     network_mode: none
     volumes:
-      - /mnt/CloudBackup/BackedUpFiles/paperless-ingest:/scans
+      - /mnt/CloudBackup/BackedUpFiles/paperless/ingest:/scans
