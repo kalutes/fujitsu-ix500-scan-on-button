@@ -2,24 +2,28 @@ FROM debian:bullseye-slim
 RUN apt-get update && apt-get upgrade -y && \
     apt install \
         git \
+        time \
         sane \
         sane-utils \
         scanbd \
-        git \
-        imagemagick \
         netpbm \
         ghostscript \
         poppler-utils \
-        imagemagick \
         util-linux \
-        parallel \
         units \
-        bc -y
+        bc \
+        nano \
+        texlive-extra-utils \
+        python3 \
+        python3-pip -y
+
 WORKDIR /app
 RUN git clone https://github.com/rocketraman/sane-scan-pdf.git
 RUN mkdir /scans
 
-#Add the scanner VID:PID
+RUN pip3 install pdfcropmargins
+
+# Add the scanner VID:PID
 RUN   echo "usb 0x04c5 0x132b" >> /etc/sane.d/fujitsu.conf
 RUN   echo "usb 0x04c5 0x132b" >> /etc/scanbd/fujitsu.conf
 
